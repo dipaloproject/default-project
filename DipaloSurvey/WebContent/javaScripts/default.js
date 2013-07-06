@@ -5,3 +5,11 @@
 function initialise(){
 	
 }
+
+function validateSubmit(form){
+	return true;
+}
+
+function cancelSurvey(){
+	
+}

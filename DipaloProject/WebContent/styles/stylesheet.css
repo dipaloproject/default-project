@@ -1,0 +1,209 @@
+/*
+	Stylesheet path name: /styles/stylesheet.css
+	Created: June 6, 2013
+	Author: Maleka, T
+	Min screen resolution: 1280px BY 1024px
+	
+*/
+
+root {
+	display: block;
+}
+
+body {
+	
+	/* background-color:  #606060;
+	background-image: url('../images/backgrounds/main background.jpg');
+	background-position: top;
+	background-repeat: no-repeat; */
+	background-color: white;
+	color: white;
+	font-family: 'Arial';
+	font-size: 14px;
+	margin: 0px;
+}
+
+/* the main division - carries all divisions on the webpage */
+.main {
+	
+	/* width: 1280px;
+	height: 1024px; */
+	width: 100%;
+	height: auto;
+	background-color: transparent;
+	margin: 0px auto;
+}
+
+/* the top menu bar */
+.topMenuBar {
+	
+	background-color: black;
+	color: white;
+	height: 60px;
+	width: 100%;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	font-size: 16px;
+	z-index: 50;
+}
+
+/* the profile name of the person visiting the webpage */
+.loggedInUser {
+	color:  #A0A0A0;
+	margin-left: 10px;
+	margin-right: 5px;
+	margin-top: 10px;
+	margin-bottom: 5px;	
+	float: left;
+	max-width: 180px;
+}
+
+/* the avatar of the logged in user */
+.avatarOnTopMenuBar {
+	
+	width: 48px;
+	height: 48px;
+	margin-left: 10px;
+	margin-right: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;	
+	float: left;
+}
+
+/* the links on the top menu bar */
+.topMenuBarMenuLink, .topMenuBarMenuLink:active {
+	
+	color: white;
+	font-weight: normal;
+	text-decoration: none;
+	border: 0px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 12px;
+	margin-right: 12px;
+	float: left;
+	
+}
+
+.topMenuBarMenuLink:hover {
+	
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	border: 0px;
+}
+
+/* the menu list on the left hand side of the top
+ menu bar */
+.topMenuBarLeftList {
+	
+	display: inline-block;
+	margin-left: 10px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	list-style: none;
+	word-spacing: normal;
+	width: auto;
+	
+}
+
+/* the menu list on the right hand side of the 
+top menu bar */
+.topMenuBarRightList {
+	
+	display: inline-block;
+	margin-left: 200px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	list-style: none;
+	width: auto;
+	
+}
+
+/* the list items in the top menu bar lists */
+.topMenuBarLeftList LI, .topMenuBarRightList LI {
+	
+	display: block;
+	padding-left: 12px;
+	padding-right: 12px;
+	float: left;
+	white-space: nowrap;
+	
+}
+
+/* the main menu header with circles with four sub sections */
+.bubbleHeaderArea {
+	
+	width: 100%;
+	height: 350px;
+	overflow: auto;
+	background-color: transparent;
+}
+
+/* the links inside the bubble area */
+.bubbleHeaderArea A, .bubbleHeaderArea A:active, 
+.bubbleHeaderArea A:hover, .bubbleHeaderArea A:visited
+{
+	text-decoration: none;
+	border: 0px;
+}
+
+
+
+/* the DIPALO logo in the bubble area */
+.dipaloLogoInBubbleArea {
+	width: 280px;
+	height:auto;
+	margin-left: 10px;
+	margin-top: 70px;
+	float:left;
+}
+
+/* the bubbles */
+
+.bubbleHeaderArea IMG {
+	height: auto;
+	float: left;
+	border: 0px;
+}
+
+.chaptersBubbleImage {
+	width: 180px;
+	margin-left: 30px;
+	margin-top: 120px;
+	
+}
+
+.myProgressBubbleImage {
+	width: 140px;
+	margin-left: 40px;
+	margin-top: 90px;
+}
+
+.assessmentsBubbleImage {
+	width: 210px;
+	margin-left: 45px;
+	margin-top: 100px;
+}
+
+.milestonesBubbleImage {
+	width: 200px;
+	margin-left: 40px;
+	margin-top: 90px;
+}
+
+.ladderImage {
+	position: absolute;
+}
+
+/* the main content */
+.mainContent {
+	width: 100%;
+	min-height: 300px;
+	background-color:transparent;
+	background-image: url('../images/backgrounds/content background.png');
+	background-repeat:repeat;
+}

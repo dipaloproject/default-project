@@ -1,28 +1,369 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Student Online Survey</title>
-		
-		<!-- link to CSS file here -->
-		<link type="text/css" rel="stylesheet" href="styles/stylesheet.css" />
-		<!-- link to the Google hosted jQuery library (recommended) -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-		<!-- link to javascript -->
-		<script type="text/javascript" src="scripts/default.js"></script>
-		
-	</head>
-	
-	<body onload="initialise()">
-	
-		<form id="studentSurveyForm" method="POST" 
-			action="phpScripts/action/processSurveySubmission.php"
-			onsubmit="return validateSubmit(this)">
-			
-			<input type="submit" name="submitSurvey" value="Submit" />
-			<input type="button" name="cancel" value="cancel" 
-				onclick="cancelSurvey()" />
-		
-		</form>
-	</body>
+<!DOCTYPE html PUBLIC
+  "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    	
+        <title>Dipalo Survey</title>
+        
+        <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css' />
+      	<link href="styles/stylesheet.css" rel="stylesheet" type="text/css" />
+      	
+        <script src="scripts/default.js" language="javascript" type="text/javascript"></script>
+        
+    </head>
+    
+     <body onload="initialise()">
+     
+     	<div id="messageBox">
+     		
+     		<div id="messageBoxForm">
+     			
+     			<div id="messageBoxTitleWrapper">
+     				<h2 id="messageBoxTitle"></h2>
+     			</div>
+     			
+     			<p id="messageBoxText"></p>
+     			
+     			<div>
+     				<input id="closeMessageBoxButton" type="button" class="button" value="Close" 
+     					onclick="closeMessageBox()"/>
+     			</div>
+     			
+     		</div>
+     	</div>
+     
+        <div class="page">
+        	
+        	<form id="surveyForm" name="surveyForm" action="php/processSurveyData.php" method="post" onsubmit="return verifyFormData(this)">
+	        	<h2>Dipalo Project Survey</h2>
+	        	<hr class="horizontalLine"/>
+	        	<h4>About this survey</h4>
+	        	<p>
+	        		Dipalo is an interactive online tutoring tool. Dipalo provides interaction between students 
+				    from different schools across South Africa, to help each other with Mathematics. 
+				    It also provide relevant Mathematics online resources for learners to access for FREE.
+				    Available online resources include videos, textbooks, past question papers and it allows 
+				    learners to post homework questions from which one of our well-trained tutors will assist you 
+				    through a LIVE chat and we will also post the most popular homework questions along with their
+				    solutions, nd these can be discussed by other learners too.</p>
+         
+        		<br/>
+        		
+        		<hr class="horizontalLine" />
+	        	
+	        	<p class="instruction">IMPORTANT: All fields marked with (*) are required.</p>
+	        	
+	        	<hr class="horizontalLine" />
+	        	
+	        	<p class="instruction">Here's an ICE-BREAKER, you can go for it...</p>
+
+	        	<p>
+			        If you have trouble solving a problem in Maths, what do you do? <br/> 
+			        Do you get bored and end up sketching cartoons, make paper planes <br/>
+			        or eventually ask for help?</p>
+			    </p>
+			    <br/>
+			    <textarea type="text" name="whatDoYouDo" size="35" maxlength="120"
+			    		 title="What Do You Do" draggable="false" 
+			    		spellcheck="true"></textarea>
+	        	<br/>
+	        	
+	        	<p class="instruction">Please fill in some information about You...</p>
+        		
+        		<div id="personalInfoBlock">
+        			<table border="0">
+        				
+        				<!-- School Name -->
+        				<tr>
+        					<td>
+        						<label for="schoolName">Your School Name*:</label>
+        					</td>
+        					<td>
+        						 <input type="text" name="schoolName" class="textBox"/>
+        						 <p class="error" id="schoolName">Please enter the name of the school.</p>
+        					</td>
+        				</tr>
+        				<!-- The province the student is from -->  
+        				<tr>
+        					<td>
+        						<label for="province">Your province*:</label>
+        					</td>
+        					
+        					<td>
+        						 <select name="province" class="dropDownList">
+							    	<optgroup label="Select your province in RSA:">
+							    		<option value="Limpopo">Limpopo</option>
+							    		<option value="Mpumalanga">Mpumalanga</option>
+							    		<option value="North West">North West</option>
+							    		<option value="Gauteng">Gauteng</option>
+							    		<option value="Free State">Free State</option>
+							    		<option value="KwaZulu Natal">KwaZulu Natal</option>
+							    		<option value="Northern Cape">Northern Cape</option>
+							    		<option value="Western Cape">Western Cape</option>
+							    		<option value="Eastern Cape">Eastern Cape</option>
+							    	</optgroup>
+							    </select>
+							    
+							    <p class="error" id="province">Please select your province.</p>
+							    
+        					</td>
+        				</tr>
+        				<!-- Name of district -->
+        				<tr>
+        					<td>
+        						 <label for="districtName">Name of District or Municipality:</label>
+        					</td>
+        					<td>
+        						<input type="text" name="districtName" class="textBox"  />
+        					</td>
+        				</tr>
+        			</table>
+	        		</br> 
+    		</div>
+    
+		    	<div id="questionsArea">
+		        	
+		        	<p class="instruction">Now, please complete the survey below - it's short and quick...</p>
+		        	
+		        	<div class="questionBlockEven">
+		        	
+		        		<table border="0">
+		        			<tr>
+		        				<td>
+		        					<div class="numbering">1</div>
+		        				</td>
+		        				<td>
+		        					<!-- Exam Type (IEB or DOE) -->
+						            <label for="examType">Which examination board will you be writing under in 2013?*</label>
+						            </br>
+					                <input type="radio" name="examType" value="doe"/>
+					                DOE - Department of Education<br/>
+					                <input type="radio" name="examType" value="ieb"/>
+					                IEB - Independent Exam Board
+						            <br/>
+						            <p class="error" id="examType">Please select the examination board.</p>
+		        				</td>
+		        			</tr>
+		        		</table>
+			        	
+		        	</div>
+					
+					<div class="questionBlockOdd">
+						<table border="0">
+							<tr>
+								<td>
+									<div class="numbering">2</div>
+								</td>
+								<td>
+									<!-- Type of school attending (private or public) -->
+							            <label for="schoolType">Do you attend a public or private school?*</label>
+							            <br/>
+							            <input type="radio" name="schoolType" value="privateSchool" />
+							            Public School<br/>
+							            <input type="radio" name="schoolType" value="publicSchool" />
+							            Private School
+							            <br/>
+							            
+							            <p class="error" id="schoolType">Please select which school you attend 
+							            (public or private).</p>
+								</td>
+							</tr>
+						</table>
+						
+		            </div>
+		            
+		             <div class="questionBlockEven">
+		             	<table border="0">
+		             		<tr>
+		             			<td>
+									<div class="numbering">3</div>
+								</td>
+								<td>
+									 <!-- Take Maths as a subject at school -->
+						             <label for="takeMathAsSubj">Do you take Mathematics as a subject?*</label>
+						             <br/>
+					                 <input type="radio" name="takeMathAsSubj" value="yes"/>
+					                 Yes<br>
+					                 <input type="radio" name="takeMathAsSubj" value="no" />
+					                 No
+						             <br/>
+						             <p class="error" id="takeMathAsSubj">Please select if Mathematics is one of your subjects.</p>
+								</td>
+		             		</tr>
+		             	</table>
+			            
+		             </div>
+		             
+		             <div class="questionBlockOdd">
+		             	<table border="0">
+		             		<tr>
+		             			<td>
+		             				<div class="numbering">4</div>
+		             			</td>
+		             			
+		             			<td>
+		             				 <!-- own a smartphone -->
+						             <label for="haveSmartphone">Do you own a smartphone?*</label>
+						             <br/>
+					                 <input type="radio" name="haveSmartphone" value="yes" />
+					                 Yes<br/>
+					                 <input type="radio" name="haveSmartphone" value="no" />
+					                 No
+						             <br/>
+						             <p class="error" id="haveSmartphone">Please select if you do own or do not own a smartphone.</p>
+		             			</td>
+		             		</tr>
+		             	</table>
+			            
+		             </div>
+		             
+		             <div class="questionBlockEven"> 
+		             	<table border="0">
+		             		<tr>
+		             			<td>
+		             				<div class="numbering">5</div>
+		             			</td>
+		             			<td>
+		             				<!-- have access to a computer -->
+						             <label for="hasAccessToComputer">Do you have access to computer facilities at home or personally 
+						                  own a computer, laptop or tablet?*</label>
+						             <br/>
+						             <input type="radio" name="hasAccessToComputer" value="yes"/>Yes<br/>
+						             <input type="radio" name="hasAccessToComputer" value="no"/>No
+						             <br/>
+						             
+						             <p class="error" id="hasAccessToComputer">Please indicate if you do have accept to computer 
+						                    facilities.</p>
+		             			</td>
+		             		</tr>
+		             	</table>
+			             
+		             </div>
+		              
+		              <div class="questionBlockOdd">
+		              	<table border="0">
+		              		<tr>
+		              			<td>
+		              				<div class="numbering">6</div>
+		              			</td>
+		              			<td>
+		              				<!-- Affords a private tuition -->
+			              		  <label for="affordPrivateTutor">Can you afford private tuition, such as paid extra lessions or 
+					                          your own private tutor?*</label>
+					              <br/>
+					                <input type="radio" name="affordPrivateTutor" value="yes"/>Yes<br>
+					                <input type="radio" name="affordPrivateTutor" value="no"/>No  
+					              <br/>
+					              <p class="error" id="affordPrivateTutor">Please indicate if you can afford extra private tuition.</p>
+		              			</td>
+		              		</tr>
+		              	</table>
+			              
+		              </div>
+		              
+		              <div class="questionBlockEven">
+		              		<table border="0">
+		              			<tr>
+		              				<td>
+		              					<div class="numbering">7</div>
+		              				</td>
+		              				<td>
+		              					<!-- has access to Mathematics resources such as textbooks -->
+						              <label for="haveAccessToMathematicsResources">Do you have access to Mathematics resources, such as textbooks,
+						               study guides, TV programmes, Mathematics computer software or any similar MAthematics aiding resources?*</label>
+						              <br/>
+									  <input type="radio" name="haveAccessToMathematicsResources" value="yes" />Yes<br/>
+					                  <input type="radio" name="haveAccessToMathematicsResources" value="no" />No
+						              <br/>
+						              <p class="error" id="haveAccessToMathematicsResources">Please indicate if you do have extra Mathematics resources.</p>
+		              				</td>
+		              			</tr>
+		              		</table>
+			              
+		              </div>
+		              
+		              <div class="questionBlockOdd">
+		              	<table border="0">
+		              		<tr>
+		              			<td>
+		              				<div class="numbering">8</div>
+		              			</td>
+		              			<td>
+		              				<label for="schoolHasComputerFacilities">Does your school have computer facilities, that your school has
+			                        granted access to students for use for extended use (such as allowing students to use computers for 
+			                        research, personal learnership, typing assignments etc.)?*</label>
+					              <br/>
+					              <input type="radio" name="schoolHasComputerFacilities" value="yes" />Yes<br/>
+					              <input type="radio" name="schoolHasComputerFacilities" value="no" />No 
+					              <br/>
+					              <p class="error" id="schoolHasComputerFacilities">Please indicate if your school has computer resources.</p>
+		              			</td>
+		              		</tr>
+		              	</table>
+			              
+		              </div>
+		              
+		              <div class="questionBlockEven">
+		              	<table border="0">
+		              		<tr>
+		              			<td>
+		              				<div class="numbering">9</div>
+		              			</td>
+		              			<td>
+		              				 <label for="hasAccessToLibraryFacilities">Do you have access to library facilities, either in your local
+			                          community or at your school and fully functional?*</label>
+				                      <br/>
+				                      <input type="radio" name="hasAccessToLibraryFacilities" value="yes" />Yes<br/>
+				                      <input type="radio" name="hasAccessToLibraryFacilities" value="no" />No
+				                      <br/>
+							<p class="error" id="hasAccessToLibraryFacilities" >Please indicate have access to a library in your community or school.</p>
+		              			</td>
+		              		</tr>
+		              	</table>
+		              
+			             
+                      </div>
+		               
+		              <div class="questionBlockOdd">
+		              	<table border="0">
+		              		<tr>
+		              			<td>
+		              				<div class="numbering">10</div>
+		              			</td>
+		              			<td>
+		              				<label for="hasAccessToInternet">Do you have access to the Internet, either at home, school, library or can
+			                        afford frequent acccess to a local Internet cafe?*</label>
+					              <br/>
+			                      <input type="radio" name="hasAccessToInternet" value="yes" />Yes<br/>
+			                      <input type="radio" name="hasAccessToInternet" value="no" />No
+					              <br/>  
+					              <p class="error" id="hasAccessToInternet">Please indicate if whether you 
+					              have access to the Internet.</p>
+		              			</td>
+		              		</tr>
+		              	</table>
+			                
+		              </div>
+		             
+		             <p class="instruction">Thank you for taking time to complete this survey :-) <br/>
+           			Click <b>Submit</b> to complete this process, or <b>Cancel</b> to clear all data.</p>
+		             
+		        </div>    
+           		<div class="buttonsArea">
+
+           			<div style="margin:5px auto; width: 300px">
+           				<input type="submit" class="button" value="Submit" name="submitSurvey" />
+           				<input type="button" class="button" value="Cancel" name="clearData" onclick="clearForm()"/>
+           			</div>
+           		</div>
+            
+           <br/>
+        </form>
+        	
+        </div>
+        	
+    </body>
 </html>

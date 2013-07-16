@@ -1,0 +1,215 @@
+root {
+	display:block;
+}
+
+body {
+	background-color: black;
+	color:black;
+	font-family: 'Special Elite', cursive;
+	font-size: 18px;
+}
+
+textarea {
+	font-size: 18px;
+	color:black;
+	font-family: 'Special Elite', cursive;
+	border-radius: 5px;
+	width: 90%;
+	height: 100px;
+	border: 2px dashed black;
+	padding: 5px;
+	background-color: #FFFF33;
+	resize: none;
+}
+
+textarea:hover {
+	border: 2px solid black;
+}
+
+label {
+	font-family: 'Special Elite', cursive;
+	font-size: 24px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+	
+/* custom style classes */
+.page {
+	width: 955px;
+	margin: 0px auto;
+	background-color: white;
+	padding: 5px;
+	z-index: 1;
+}
+
+.textBox {
+	width: 350px;
+	height: 36px;
+	border: 2px dashed black;
+	border-radius: 5px;
+	background-color: #FFFF33;
+	color: black;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-family: 'Special Elite', cursive;
+	margin-left: 10px;
+	
+}
+
+.textBox:hover {
+	color: black;
+	border: 2px solid black;
+}
+
+.dropDownList {
+	color: black;
+	background-color: #FFFF33;
+	border: 2px dashed black;
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	height: 36px;
+	width: 365px;
+	font-size: 18px;
+	border-radius: 5px;
+	font-family: 'Special Elite', cursive;
+	margin-left: 10px;
+}
+
+.dropDownList:hover {
+	border: 2px solid black;
+}
+
+.questionBlockEven {
+	background-color: #CCFF33;
+	width: 90%;
+	height: auto;
+	padding: 5px;
+	margin-top: 10px;
+	color: black;
+	border: 2px dashed black;
+}
+
+.questionBlockOdd {
+	background-color: white;
+	width: 90%;
+	height: auto;
+	padding: 5px;
+	color:black;
+}
+
+.numbering {
+	font-size: 48px;
+	text-align: middle;
+	width: 100px;
+	vertical-align: center;
+}
+
+.buttonsArea {
+	width: 100%;
+	height: auto;
+	padding-top: 20px;
+	padding-bottom: 12px;
+	display: table;
+	margin: 5px auto;
+	border-top: 2px dashed black;
+	font-family: 'Special Elite', cursive;
+}
+
+.button {
+	height: 38px;
+	border-radius: 5px;
+	border: 1px solid black;
+	color: white;
+	font-family: 'Special Elite', cursive;
+	font-weight: bold;
+	background-color: black;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	margin: 5px;
+}
+
+.button:hover {
+	background-color: white;
+	color: black;
+}
+
+.horizontalLine {
+	border-top: 2px dashed black;
+	background-color: transparent;
+	border-bottom: 0px;
+}
+
+.instruction {
+	color:blue; 
+	font-style: italic;
+}
+
+.error {
+	display:none;
+	color: red;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-style: italic;
+}
+
+/* all controls + styles for our custom message box */
+#messageBox {
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	background-color: transparent;
+	background-image:url('../images/background/black transparent background.png');
+	background-repeat: repeat;
+	color: white;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+	padding: auto;
+
+}
+
+#messageBoxForm {
+
+	width: 40%;
+	height: auto;
+	border: 2px solid black;
+	background-color: transparent;
+	background-image: url('../images/background/white background.png');
+	background-repeat: repeat;
+	color: black;
+	margin: 80px auto;
+	display: table;
+	text-align:center;
+}
+
+#messageBoxForm DIV {
+	width:100%; 
+	margin: 5px auto;
+	display: table;
+}
+
+#messageBoxText {
+	text-align:left;
+	margin-left: 10px;
+	font-size: 15px;
+	line-height: 28px;
+}
+
+#messageBoxTitleWrapper {
+	background-color: #CCFF33;
+	width: 100%;
+	height: auto;
+	margin-top: 5px;
+}
+
+#messageBoxTitle {
+	display: block;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: black;
+}

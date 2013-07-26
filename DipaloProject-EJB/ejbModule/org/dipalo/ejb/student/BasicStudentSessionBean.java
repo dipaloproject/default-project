@@ -19,5 +19,10 @@ public class BasicStudentSessionBean implements BasicStudentSession {
 		return null;
 	}
 	
+	public Student registerNewStudent(Student student)
+			throws RemoteException {
+		return null;			
+	}
+	
 
 }

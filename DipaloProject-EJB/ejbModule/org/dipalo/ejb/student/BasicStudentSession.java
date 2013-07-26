@@ -8,4 +8,5 @@ import org.dipalo.model.Student;
 @Remote
 public interface BasicStudentSession {
 	public Student studentLogin(String username, String password) throws RemoteException;
+	public Student registerNewStudent(Student student) throws RemoteException;
 }

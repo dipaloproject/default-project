@@ -1,11 +1,14 @@
 package org.dipalo.ejb.adapter;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
+import org.dipalo.services.update.UpdateStatus;
 
 public abstract class EJBSessionAdapter {
 	
@@ -35,4 +38,28 @@ public abstract class EJBSessionAdapter {
 		return dataSource;
 	}
 	
+	public static void closeConnection(Connection connection, PreparedStatement ps) {
+		try {
+			ps = null;
+			if (connection != null && !connection.isClosed())
+				connection.close();
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	public static UpdateStatus resolveUpdateStatus(int result) {
+		UpdateStatus status = null;
+		
+		switch (result) {
+			case -1:
+				status = UpdateStatus.Failed;
+				break;
+			default: 
+				status = UpdateStatus.Successful;
+		}
+		
+		return status;
+	}
 }

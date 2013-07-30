@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import javax.ejb.Stateless;
 import org.dipalo.ejb.adapter.EJBSessionAdapter;
-import org.dipalo.model.Student;
 import org.dipalo.model.User;
 import org.dipalo.model.UserLoginHistory;
 import org.dipalo.model.enumeration.UserRole;

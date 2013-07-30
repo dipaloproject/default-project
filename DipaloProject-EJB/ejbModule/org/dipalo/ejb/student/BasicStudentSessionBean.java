@@ -14,7 +14,7 @@ import org.dipalo.security.encryption.SHA256Encryptor;
 /**
  * Session Bean implementation class BasicStudentSessionBean
  */
-@Stateless(mappedName = "ejb-BasicStudentSession")
+@Stateless(mappedName = "BasicStudentSession")
 public class BasicStudentSessionBean extends EJBSessionAdapter implements BasicStudentSession {
 
 	@Override

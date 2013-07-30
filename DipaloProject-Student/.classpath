@@ -8,5 +8,10 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/usr/local/glassfish3/glassfish/modules/javax.servlet.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/home/tsepo/IDES/eclipse/plugins/oracle.eclipse.tools.doc.javaee6_1.0.0.201201241947/javaee6doc/doc/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
